@@ -9,35 +9,35 @@ var closeWindow = function() {
 	$('.modal').fadeOut(1000);
 }
 
-// var submitError = function() {
-// 	$(this).addClass('error');
-// }
+var submitError = function() {
+	$('input').addClass('error');
+}
 
-// var removeError = function() {
-// 	$(this).removeClass('error');
-// }
+var removeError = function() {
+	$(this).removeClass('error');
+}
 
-$('.getstarted').on('click', closeWindow);
+var stopbubbling = function(event) {
+	event.stopPropagation();
+}
+
+$('.getstarted').on('click', stopbubbling);
+
+$('.modal').on('click', closeWindow);
 
 $('.signin').on('click', openWindow);
 
 $('.close').on('click', closeWindow);
 
-// $('.submit').on('click', submitError);
-// $('input[name="user"]').on('focus', removeError);
-// $('input[name="pass"]').on('focus', removeError);
+$('.submit').on('click', submitError);
 
-$('.submit').on('click', function(event) {
-	event.stopPropagation();
-	$('input').addClass('error');
-});
+$('input').on('focus', removeError);
 
-$('input[name="pass"]').on('click', function(event) {
-	event.stopPropagation();
-	$('input[name="pass"]').removeClass('error');
-});
+// $('.submit').on('click', function(event) {
+// 	event.stopPropagation();
+// 	$('input').addClass('error');
+// });
 
-$('input[name="user"]').on('click', function(event) {
-	event.stopPropagation();
-	$('input[name="user"]').removeClass('error');
-});
+// $('input').on('click', function(event) {
+// 	event.stopPropagation();
+// });
