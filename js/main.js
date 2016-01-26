@@ -10,23 +10,27 @@ var closeWindow = function() {
 }
 
 // var submitError = function() {
-// 	$('input').addClass('error');
-// 	event.stopPropagation();
+// 	$(this).addClass('error');
 // }
 
-var removeError = function() {
-		$(this).removeClass('error');
-}
+// var removeError = function() {
+// 	$(this).removeClass('error');
+// }
 
-$('.modal').on('click', closeWindow);
+$('.getstarted').on('click', closeWindow);
 
 $('.signin').on('click', openWindow);
 
 $('.close').on('click', closeWindow);
 
 // $('.submit').on('click', submitError);
-
 // $('input[name="user"]').on('focus', removeError);
+// $('input[name="pass"]').on('focus', removeError);
+
+$('.submit').on('click', function(event) {
+	event.stopPropagation();
+	$('input').addClass('error');
+});
 
 $('input[name="pass"]').on('click', function(event) {
 	event.stopPropagation();
@@ -36,9 +40,4 @@ $('input[name="pass"]').on('click', function(event) {
 $('input[name="user"]').on('click', function(event) {
 	event.stopPropagation();
 	$('input[name="user"]').removeClass('error');
-});
-
-$('.submit').on('click', function(event) {
-	event.stopPropagation();
-	$('input').addClass('error');
 });
